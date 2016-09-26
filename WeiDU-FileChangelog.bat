@@ -28,6 +28,6 @@ if "%~1"=="" (
 :Error
 	ECHO You did not enter filename!
 :End
-	ECHO WARNING: WEIDU LIMITATION PREVENTS DETECTING FIRST MOD WHICH MODIFY/CHANGE FILE!
+	ECHO WARNING: WEIDU LIMITATION PREVENTS DETECTING FIRST MOD WHICH MODIFY/CHANGE FILE! > WeiDU-FileChangelog/%filename%-WeiDU-FileChangelog-%dt%.txt
 	START "" /B type WeiDU-FileChangelog\%filename%-WeiDU-FileChangelog-%dt%.txt
 	START "" NOTEPAD.exe WeiDU-FileChangelog\%filename%-WeiDU-FileChangelog-%dt%.txt
