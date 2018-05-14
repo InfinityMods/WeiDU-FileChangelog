@@ -1,1 +1,1 @@
-# Tool for easy providing WeiDU based file changelog for IE Mods
+# Tool for providing file changelog for Infinity Engine games with installed WeiDU mods.
