@@ -20,14 +20,13 @@ if "%~1"=="" (
 :PROCESS
 	IF "%filename%"=="" GOTO Error
 		ECHO %filename%
-		ECHO WARNING: WEIDU LIMITATION PREVENTS DETECTING FIRST MOD WHICH MODIFY/CHANGE FILE! > WeiDU-FileChangelog/%filename%-WeiDU-FileChangelog-%dt%.txt
-		ECHO. >> WeiDU-FileChangelog/%filename%-WeiDU-FileChangelog-%dt%.txt
-		WeiDU-FileChangelog.exe --log nul --change-log %filename% >> WeiDU-FileChangelog/%filename%-WeiDU-FileChangelog-%dt%.txt --out WeiDU-FileChangelog
 		ECHO Log file path: WeiDU-FileChangelog\%filename%-WeiDU-FileChangelog-%dt%.txt
+		WeiDU-FileChangelog.exe --noselfupdatemsg --log nul --change-log %filename% --out WeiDU-FileChangelog > WeiDU-FileChangelog/%filename%-WeiDU-FileChangelog-%dt%.txt
 		GOTO End
 :Error
 	ECHO You did not enter filename!
+	Exit
 :End
-	ECHO WARNING: WEIDU LIMITATION PREVENTS DETECTING FIRST MOD WHICH MODIFY/CHANGE FILE! > WeiDU-FileChangelog/%filename%-WeiDU-FileChangelog-%dt%.txt
 	START "" /B type WeiDU-FileChangelog\%filename%-WeiDU-FileChangelog-%dt%.txt
 	START "" NOTEPAD.exe WeiDU-FileChangelog\%filename%-WeiDU-FileChangelog-%dt%.txt
+	Exit
